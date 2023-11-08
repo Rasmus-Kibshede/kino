@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        const fetchMovies = async () => {
+
+            const response = await fetch('http://localhost:8080/movies');
+            const movies = await response.json();
+            console.log(movies);
+
+            const movie = movies[0];
+
+            const showMovies = document.getElementById('show_movies');
+
+            const pTitle = document.createElement('p');
+            pTitle.innerText = 'Title: ' + movie.title;
+
+            const pDirector = document.createElement('p');
+            pDirector.innerText = 'Director: ' + movie.director;
+
+            const pGenre = document.createElement('p');
+            pGenre.innerText = 'Genre: ' + movie.genre;
+
+
+            showMovies.appendChild(pTitle);
+            showMovies.appendChild(pDirector);
+            showMovies.appendChild(pGenre);
+        }
+
+        fetchMovies();
+    </script>
+
+
+    <div id="show_movies"></div>
+
+
+</body>
+
+</html>
