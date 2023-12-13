@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link type="text/css" rel="stylesheet" href="product.css" />
+    <title>Product</title>
+  </head>
+  <body>
+    <div id="wrapper">
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="product.html">Product</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+
+      <h1>Product</h1>
+
+      <input type="search" placeholder="search for product"></input>
+        <button type="submit" onclick="alert('searching')">Search</button>
+
+        
+
+      <div id="listProducs">
+        <table>
+          <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Weight</th>
+          </tr>
+          <tr>
+            <td>Apple</td>
+            <td>1.99</td>
+            <td>0.5</td>
+          </tr>
+          <tr>
+            <td>Banana</td>
+            <td>2.99</td>
+            <td>0.3</td>
+          </tr>
+          <tr>
+            <td>Orange</td>
+            <td>3.99</td>
+            <td>0.4</td>
+          </tr>
+        </table>
+      </div>
+
+      <div id="addProduct">
+        <form method="post" action="/localhost:8080/product/">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="name"></input>
+            <label for="price">Price</label>
+            <input type="text" id="price" name="price" placeholder="price"></input>
+            <label for="weight">Weight</label>
+            <input type="text" id="weight" name="weight" placeholder="weight"></input>
+            <button type="submit" onclick="handleProductCreation">Add</button>
+        </form>
+    </div>
+    </div>
+
+    <script>
+        const handleProductCreation = (e) => {
+            e.preventDefault();
+
+            console.log(e.target);
+
+
+            const product = {
+                name: name,
+                price: price,
+                weight: weight
+            }
+            return product;
+        }
+    </script>
+  </body>
+</html>

@@ -71,13 +71,13 @@
     
         let card = {};
 
-        const fetchCards = async (params) => {
+        const fetchCard = async (params) => {
             const response = await fetch('http://localhost:8080/cards');
             card = await response.json();
             document.getElementById('person').innerText = card.person;
         }
 
-        fetchCards();
+        fetchCard();
 
         
     
@@ -88,7 +88,7 @@
             const action = document.getElementById('action').value;
             const object = document.getElementById('object').value;
     
-            if (suit === card.suit && rank === card.rank && action === card.action && object === card.object) {
+            if (suit === String(card.suit).toLocaleLowerCase() && rank === String(card.rank).toLocaleLowerCase() && action === String(card.action).toLocaleLowerCase() && object === String(card.object).toLocaleLowerCase()) {
                 alert('You win!');
             } else {
                 alert('You lose!');
